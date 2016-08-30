@@ -1,0 +1,40 @@
+﻿<div id="room-tile-icons" class="animated infinite fade-in">
+    <div class="col-xs-4 col-md-3">
+        <div ng-if="room.lights.length == 0" class="room-tile-icon col-xs-12" ng-click="showLights()">
+            <img src="/assets/img/icon-light-grey.png" title="No lights have been configured for this room." />
+        </div>
+        <div ng-if="room.lights.length != 0" class="room-tile-icon col-xs-12" ng-click="showLights()">
+            <img src="/assets/img/icon-light-black.png" title="Lights are currently off." />
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="room-tile-icon col-xs-12">
+            <img src="/assets/img/icon-fan.png" />
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="room-tile-icon col-xs-12">
+            <img src="/assets/img/icon-pump.png" />
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="room-tile-icon col-xs-12" style="background-color: {{room.temperatures.iconColor}}">
+            <img src="/assets/img/icon-temperature.png" />
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="room-tile-icon col-xs-12">
+            <img src="/assets/img/icon-humidity.png" />
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="room-tile-icon col-xs-12">
+            <img src="/assets/img/icon-co2.png" />
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="room-tile-icon col-xs-12">
+            <img src="/assets/img/icon-reservoir.png" />
+        </div>
+    </div>
+</div>

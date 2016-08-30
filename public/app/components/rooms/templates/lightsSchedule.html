@@ -1,0 +1,33 @@
+<div id="room-lights-schedule" class="col-xs-12 ">
+    <p><strong>Schedule</strong></p>
+    <div class="col-xs-12">
+        <label class="pull-left" style="line-height: 2.5;">On Time:</label>
+        <div class="form-inline">
+            <div class="form-group pull-right">
+                <select class="form-control"
+                        ng-model="rooms[roomIndex].schedule.lights.onHour"
+                        ng-change="updateOnHour()"
+                        ng-options="option.value as option.name for option in hourOptions"></select>
+                <select class="form-control"
+                        ng-model="rooms[roomIndex].schedule.lights.onMinute"
+                        ng-change="updateOnMinute()"
+                        ng-options="option.value as option.name for option in minuteOptions"></select>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <label class="pull-left" style="line-height: 2.5;">Off Time:</label>
+        <div class="form-inline">
+            <div class="form-group pull-right">
+                <select class="form-control"
+                        ng-model="rooms[roomIndex].schedule.lights.offHour"
+                        ng-change="updateOffHour()"
+                        ng-options="option.value as option.name for option in hourOptions"></select>
+                <select class="form-control"
+                        ng-model="rooms[roomIndex].schedule.lights.offMinute"
+                        ng-change="updateOffMinute()"
+                        ng-options="option.value as option.name for option in minuteOptions"></select>
+            </div>
+        </div>
+    </div>
+</div>
