@@ -15,9 +15,13 @@ router.get('/rooms/:roomId', function(req, res, next) {
 });
 
 router.post('/rooms/:roomId', function(req, res, next){
-  console.log(data.rooms[req.params.roomId]);
+
   data.rooms[req.params.roomId] = req.body;
-  console.log(data.rooms[req.params.roomId]);
+  fs.writeFile('settings.json', JSON.stringify(data),
+    function(err){
+      if(err) console.log('Error writing file:' + err);
+    });
+  res.send(data.rooms[req.params.roomId]);
 });
 
 router.get('/rooms/:roomId/lights', function(req, res, next) {

@@ -1,19 +1,19 @@
 ﻿<div class="col-xs-12 col-sm-6 col-lg-4" ng-if='settings.ui.rooms.view == "tile"'>
     <div class="tile room-tile">
-        <div ng-if="currentView != 'icons'" class="tile room-tile-home-button-xs visible-xs" ng-click="showIcons()"><i class="fa fa-home" style="margin-left: 1px;"></i></div>
-        <div ng-if="currentView != 'icons'" class="tile room-tile-home-button hidden-xs" ng-click="showIcons()"><i class="fa fa-home fa-2x" style="margin-left: 1px;"></i></div>
+        <div ng-if="settings.rooms[$scope.$index].currentView != 'icons'" class="tile room-tile-home-button-xs visible-xs" ng-click="showIcons()"><i class="fa fa-home" style="margin-left: 1px;"></i></div>
+        <div ng-if="settings.rooms[$scope.$index].currentView != 'icons'" class="tile room-tile-home-button hidden-xs" ng-click="showIcons()"><i class="fa fa-home fa-2x" style="margin-left: 1px;"></i></div>
         <div id="room-tile-header">
             <h2>{{room.name}}</h2>
             <span>Week 7</span>
         </div>
-        <room-tile-icons-menu ng-if="currentView == 'icons'"></room-tile-icons-menu>
-        <room-tile-lights-menu ng-if="currentView == 'lights'" class="animated"></room-tile-lights-menu>
-        <room-tile-fans-menu ng-if="currentView == 'lights'"></room-tile-fans-menu>
-        <room-tile-pumps-menu ng-if="currentView == 'lights'"></room-tile-pumps-menu>
-        <room-tile-temperatures-menu ng-if="currentView == 'lights'"></room-tile-temperatures-menu>
-        <room-tile-humidity-menu ng-if="currentView == 'lights'"></room-tile-humidity-menu>
-        <room-tile-co2-menu ng-if="currentView == 'lights'"></room-tile-co2-menu>
-        <room-tile-reservoir-menu ng-if="currentView == 'lights'"></room-tile-reservoir-menu>
+        <room-tile-icons-menu ng-if="settings.rooms[$index].currentView == 'icons'"></room-tile-icons-menu>
+        <room-tile-lights-menu ng-if="settings.rooms[$index].currentView == 'lights'" class="animated"></room-tile-lights-menu>
+        <room-tile-fans-menu ng-if="settings.rooms[$index].currentView == 'fans'"></room-tile-fans-menu>
+        <room-tile-pumps-menu ng-if="settings.rooms[$index].currentView == 'pumps'"></room-tile-pumps-menu>
+        <room-tile-temperatures-menu ng-if="settings.rooms[$index].currentView == 'temperatures'"></room-tile-temperatures-menu>
+        <room-tile-humidity-menu ng-if="settings.rooms[$index].currentView == 'hygrometers'"></room-tile-humidity-menu>
+        <room-tile-co2-menu ng-if="settings.rooms[$index].currentView == 'co2s'"></room-tile-co2-menu>
+        <room-tile-reservoir-menu ng-if="settings.rooms[$index].currentView == 'reservoirs'"></room-tile-reservoir-menu>
     </div>
 </div>
 

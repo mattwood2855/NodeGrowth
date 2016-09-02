@@ -33,39 +33,38 @@ app.directive('roomTile', function () {
         //scope: {
         //    roomIndex: '=index'
         //},
-        controller: ['$scope', function ($scope) {
-            $scope.currentView = "icons";
+        controller: ['$scope','$http', function ($scope, $http) {
 
             $scope.showIcons = function () {
-                $scope.currentView = "icons";
+                $scope.settings.rooms[$scope.$index].currentView = "icons";
             };
 
             $scope.showLights = function () {
-                $scope.currentView = "lights";
+                $scope.settings.rooms[$scope.$index].currentView = "lights";
             };
 
             $scope.showFans = function () {
-                $scope.currentView = "fans";
+                $scope.settings.rooms[$scope.$index].currentView = "fans";
             };
 
             $scope.showPumps = function () {
-                $scope.currentView = "pumps";
+                $scope.settings.rooms[$scope.$index].currentView = "pumps";
             };
 
             $scope.showTemperatures = function () {
-                $scope.currentView = "temperatures";
+                $scope.settings.rooms[$scope.$index].currentView = "temperatures";
             };
 
-            $scope.showHumidity = function () {
-                $scope.currentView = "humidty";
+            $scope.showHygrometers = function () {
+                $scope.settings.rooms[$scope.$index].currentView = "humidty";
             };
 
-            $scope.showCo2 = function () {
-                $scope.currentView = "co2";
+            $scope.showCo2s = function () {
+                $scope.settings.rooms[$scope.$index].currentView = "co2";
             };
 
             $scope.showReservoirs = function () {
-                $scope.currentView = "reservoirs";
+                $scope.settings.rooms[$scope.$index].currentView = "reservoirs";
             };
 
             $scope.switchLight = function (light){
@@ -73,10 +72,15 @@ app.directive('roomTile', function () {
             }
 
             $scope.updateRoom = function () {
-                console.log("Updating Room" + $scope.$index);
-                $.post('/api/rooms/' + $scope.$index, $scope.settings.rooms[$scope.$index]).then(function(data){
-                    console.log(data);
-                })
+                console.log("Updating Room: " + $scope.$index);
+                $http.post('/api/rooms/' + $scope.$index, $scope.settings.rooms[$scope.$index])
+                    .then(function successCallback(res){
+                        $scope.settings.rooms[$scope.$index] = res.data;
+                        console.log('Room ' + $scope.$index + ' has been successfully updated.')
+                    }, function errorCallback(res){
+                        console.log("Update Unsuccessful: reverting to previous state.");
+                    }
+                );
 
             }
         }]

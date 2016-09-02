@@ -13,7 +13,7 @@ nodeGrowthApp.config(function ($routeProvider) {
 });
 
 nodeGrowthApp.controller('globalCtrl', function ($scope, $location) {
-
+    window.$scope = $scope;
     $scope.settings = {
         rooms: {
         },
@@ -24,10 +24,6 @@ nodeGrowthApp.controller('globalCtrl', function ($scope, $location) {
             }
         }
     }
-
-    $.get('/api/rooms').done(function(data){
-        $scope.settings.rooms = data;
-    });
 
     $scope.hourOptions = [
         { name: "01", value: 1 },
@@ -82,7 +78,11 @@ nodeGrowthApp.controller('topNavBarCtrl', function ($scope, $location) {
     });
 });
 
-nodeGrowthApp.controller('roomsCtrl', function ($scope, $location) {
+nodeGrowthApp.controller('roomsCtrl', function ($scope) {
+
+    $.get('/api/rooms').done(function(data){
+        $scope.settings.rooms = data;
+    });
 
     function weeks_between(date1, date2) {
         // The number of milliseconds in one week
