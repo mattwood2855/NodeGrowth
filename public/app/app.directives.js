@@ -120,7 +120,7 @@ app.directive('roomTileLightsMenu', function () {
 
             $scope.switchLight = function (light) {
                 light.isOn = !light.isOn;
-                $scope.updateServer();
+                $scope.updateRoom();
             }
         }]
     };

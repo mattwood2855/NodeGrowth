@@ -6,7 +6,6 @@ var data = JSON.parse(fs.readFileSync('./settings.json', 'utf8'));
 // ROOMS API
 
 router.get('/rooms', function(req, res, next) {
-  console.log(data.rooms);
   res.send(data.rooms);
 });
 
