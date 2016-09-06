@@ -126,6 +126,12 @@ app.directive('roomTileLightsMenu', function () {
     };
 });
 
+app.directive('lightsAddModal', function(){
+    return {
+        templateUrl: '/app/components/rooms/templates/lightsAddModal.html'
+    };
+})
+
 app.directive('lightsOverview', function () {
     return {
         templateUrl: '/app/components/rooms/templates/lightsOverview.html',
